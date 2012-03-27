@@ -1,0 +1,25 @@
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-03-26 22:21:32
+hint
+project --topLevelPackage com.asistp --projectName asistencia
+hint
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+hint
+hint
+hint
+hint
+entity jpa --class com.asistp.domain.usuario 
+hint
+field string --fieldName nombre --sizeMax 250 --notNull 
+hint
+hint eclipse
+controller all --package com.asistp.controller 
+hint 
+!
+help
+test integration --entity ~.domain.Usuario
+// [failed] hint
+hint
+// [failed] hint
+hint
+hint
+hint
