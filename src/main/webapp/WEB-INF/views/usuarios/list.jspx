@@ -4,7 +4,8 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:list id="pl_com_asistp_domain_Usuario" items="${usuarios}" z="c1upmX3drzOinPRu26u22/JSwX8=">
         <table:table data="${usuarios}" id="l_com_asistp_domain_Usuario" path="/usuarios" z="z6czJ8IPXMbiNGIiy/63ZVkFIQs=">
-            <table:column id="c_com_asistp_domain_Usuario_nombre" property="nombre" z="i4HNeV3/S7qEuQYEAmRedQdP2vc="/>
+            <table:column id="c_com_asistp_domain_Usuario_login" property="login" z="YOk+FmBYL2yEIqhKU0zLAJA9lZE="/>
+            <table:column id="c_com_asistp_domain_Usuario_password" property="password" z="nl6eKVMxH87C/YIWuDVuFo5ooZc="/>
         </table:table>
     </page:list>
 </div>

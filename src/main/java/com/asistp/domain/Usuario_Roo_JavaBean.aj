@@ -7,12 +7,20 @@ import com.asistp.domain.Usuario;
 
 privileged aspect Usuario_Roo_JavaBean {
     
-    public String Usuario.getNombre() {
-        return this.nombre;
+    public String Usuario.getLogin() {
+        return this.login;
     }
     
-    public void Usuario.setNombre(String nombre) {
-        this.nombre = nombre;
+    public void Usuario.setLogin(String login) {
+        this.login = login;
+    }
+    
+    public String Usuario.getPassword() {
+        return this.password;
+    }
+    
+    public void Usuario.setPassword(String password) {
+        this.password = password;
     }
     
 }

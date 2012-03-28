@@ -23,3 +23,20 @@ hint
 hint
 hint
 hint
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-03-27 22:42:08
+hint
+// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log opened at 2012-03-27 23:15:13
+entity jpa --class ~.domain.Usuario 
+hint
+field string --fieldName login --unique --notNull --sizeMin 6 --sizeMax 20 
+field string --fieldName password --unique --notNull --sizeMin 6 --sizeMax 20 
+// Spring Roo 1.1.1.RELEASE [rev 156ccd6] log closed at 2012-03-27 23:18:39
+hint
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-03-27 23:21:27
+hint
+hint
+help
+security setup
+hint
+// [failed] hint
+hint

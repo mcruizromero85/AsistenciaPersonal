@@ -3,7 +3,8 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_asistp_domain_Usuario" modelAttribute="usuario" path="/usuarios" render="${empty dependencies}" z="yPTrUQWbLo6JG8hzaRi2kJQvFMs=">
-        <field:textarea field="nombre" id="c_com_asistp_domain_Usuario_nombre" required="true" z="p8YYxDQS5AJtxzPK1EGj19KgYU8="/>
+        <field:input field="login" id="c_com_asistp_domain_Usuario_login" max="20" min="6" required="true" z="HzFCKqTLx8J+kUW0vYarcKeR+DQ="/>
+        <field:input field="password" id="c_com_asistp_domain_Usuario_password" max="20" min="6" required="true" z="Hfz1k7P40YBebxWcN3/wjXfFBsY="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_asistp_domain_Usuario" render="${not empty dependencies}" z="UM1XA0w4kD0XQlvFMRcoLtKfM6g="/>
 </div>

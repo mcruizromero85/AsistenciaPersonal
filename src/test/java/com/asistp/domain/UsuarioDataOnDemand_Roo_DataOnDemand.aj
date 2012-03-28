@@ -24,16 +24,25 @@ privileged aspect UsuarioDataOnDemand_Roo_DataOnDemand {
     
     public Usuario UsuarioDataOnDemand.getNewTransientUsuario(int index) {
         Usuario obj = new Usuario();
-        setNombre(obj, index);
+        setLogin(obj, index);
+        setPassword(obj, index);
         return obj;
     }
     
-    public void UsuarioDataOnDemand.setNombre(Usuario obj, int index) {
-        String nombre = "nombre_" + index;
-        if (nombre.length() > 250) {
-            nombre = nombre.substring(0, 250);
+    public void UsuarioDataOnDemand.setLogin(Usuario obj, int index) {
+        String login = "login_" + index;
+        if (login.length() > 20) {
+            login = new Random().nextInt(10) + login.substring(1, 20);
         }
-        obj.setNombre(nombre);
+        obj.setLogin(login);
+    }
+    
+    public void UsuarioDataOnDemand.setPassword(Usuario obj, int index) {
+        String password = "password_" + index;
+        if (password.length() > 20) {
+            password = new Random().nextInt(10) + password.substring(1, 20);
+        }
+        obj.setPassword(password);
     }
     
     public Usuario UsuarioDataOnDemand.getSpecificUsuario(int index) {
