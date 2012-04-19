@@ -531,13 +531,6 @@
                                     <logOutput>true</logOutput>
                                 </configuration>
                             </execution>
-                            <execution>
-                                <id>stop-selenium</id>
-                                <phase>post-integration-test</phase>
-				<goals>
-                                    <goal>stop-server</goal>
-                                </goals>
-                            </execution>
                         </executions>
            </plugin>
             

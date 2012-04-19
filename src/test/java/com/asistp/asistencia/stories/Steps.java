@@ -34,7 +34,7 @@ public class Steps
 	}
 	@When("I click button \"$text\"")
 	public void iClickButton(String text){
-		home.clickButton("proceed");
+		home.clickButton(text);
 	}
 	
 	@When("I fill login with \"$text\"")
@@ -45,5 +45,12 @@ public class Steps
 	@Then("I fill password with \"$text\"")
 	public void iFillPasswordWith(String text){
 		home.type("j_password", text);
+	}
+	
+	@Then("I login with \"$usuario\" and password \"$password\"")
+	public void iLoginWith(String usuario,String password){
+		home.type("j_username", usuario);
+		home.type("j_password", password);
+		home.clickButton("Ingresar");
 	}
 }

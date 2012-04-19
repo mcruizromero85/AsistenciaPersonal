@@ -10,7 +10,7 @@ public class HomePage extends Page {
 	}
 	
 	public void open() {
-		open("http://localhost:9001/asistencia/login");
+		open("http://localhost:9001/asistencia/");
 	}
 
 	public void verifyPage() {

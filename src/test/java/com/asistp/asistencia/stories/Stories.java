@@ -44,6 +44,7 @@ public class Stories extends JUnitStories {
 	public Configuration configuration() {
 		Class<? extends Embeddable> embeddableClass = this.getClass();
 		return new SeleniumConfiguration()
+		
 			.useSelenium(selenium)
 			.useSeleniumContext(seleniumContext)
 			.useStepMonitor(new SeleniumStepMonitor(selenium, seleniumContext, new SilentStepMonitor()))
@@ -76,6 +77,8 @@ public class Stories extends JUnitStories {
 		return new InstanceStepsFactory(configuration(), new Steps(pageFactory), new FailingScenarioScreenshotCapture(selenium))
 		.createCandidateSteps();
 	}
+	
+	
 
 	@Override
 	protected List<String> storyPaths() {

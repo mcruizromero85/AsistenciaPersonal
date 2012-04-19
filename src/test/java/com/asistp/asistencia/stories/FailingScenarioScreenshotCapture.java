@@ -2,6 +2,7 @@ package com.asistp.asistencia.stories;
 
 import org.jbehave.core.annotations.AfterScenario;
 import org.jbehave.core.annotations.AfterScenario.Outcome;
+import org.jbehave.core.annotations.BeforeScenario;
 import org.jbehave.web.selenium.PerScenarioSeleniumSteps;
 
 import com.thoughtworks.selenium.Selenium;
