@@ -23,20 +23,20 @@ When I click button "Ingresar"
 Then I should see "Welcome mauro.ruiz"
 
 
-Scenario: User juan.sabastizagal register him assistance at 8:45 a.m, He bring to work early. Hour limit = 9:00 a.m
+Scenario: User juan.sabastizagal register him assistance at 8:45 a.m, He bring to work early. Hour limit = 09:00 a.m
 
 Given I open the web application
 Then I login with "juan.sabastizagal" and password "123456"
 Then I should see "Registro de Asistencia"
-When I set Hour "8:45" and click button "Registrar Asistencia" 
+When I set Hour "08:45" and click button "Registrar Asistencia" 
 Then I should see "Asistencia Registrada"
-Then I should see "Hora: 8:45"
+Then I should see "Hora: 08:45"
 
-Scenario: User edward.rojas register him assistance at 9:25 a.m, He bring to work early. Hour limit = 9:00 a.m
+Scenario: User edward.rojas register him assistance at 9:25 a.m, He bring to work early. Hour limit = 09:00 a.m
 
 Given I open the web application
 Then I login with "edward.rojas" and password "123456"
 Then I should see "Registro de Asistencia"
-When I set Hour "9:25" and click button "Registrar Asistencia"
+When I set Hour "09:25" and click button "Registrar Asistencia"
 Then I should see "Asistencia Registrada"
-Then I should see "Hora: 9:25"
+Then I should see "Hora: 09:25"

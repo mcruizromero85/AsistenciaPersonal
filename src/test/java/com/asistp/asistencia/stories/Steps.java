@@ -2,6 +2,7 @@ package com.asistp.asistencia.stories;
 
 
 
+import org.apache.log4j.Logger;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
@@ -14,6 +15,8 @@ public class Steps
 {
 	private final PageFactory pageFactory;
 	private HomePage home;
+	
+	private Logger logger = Logger.getLogger(Steps.class);
 	
 	public Steps(PageFactory pageFactory) 
 	{

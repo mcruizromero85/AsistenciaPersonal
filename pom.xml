@@ -486,7 +486,14 @@
               						<maxIdleTime>60000</maxIdleTime>
             						</connector>
           						</connectors>
-
+			
+			     <requestLog implementation="org.mortbay.jetty.NCSARequestLog">
+			            <filename>target/yyyy_mm_dd.request.log</filename>
+			            <retainDays>90</retainDays>
+			            <append>true</append>
+			            <extended>false</extended>
+			            <logTimeZone>GMT</logTimeZone>
+		          </requestLog>
 	                </configuration>
 	                <executions>
 	                    <execution>

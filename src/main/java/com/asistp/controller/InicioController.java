@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
@@ -13,12 +14,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.asistp.asistencia.utils.Conversiones;
 import com.asistp.domain.Asistencia;
 import com.asistp.domain.Usuario;
 
 @RequestMapping("/index")
 @Controller
 public class InicioController {
+	
+	private Logger logger = Logger.getLogger(InicioController.class);
 	
     @RequestMapping (produces = "text/html"  )
     public String show(Model uiModel) {
@@ -37,16 +41,18 @@ public class InicioController {
     	SimpleDateFormat df = new SimpleDateFormat("HH:mm");
     	String fechaAsistenciaAuxiliar = httpServletRequest.getParameter("fechaAsistenciaAuxiliarPruebas");
     	
-    	User usuario = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	logger.error("Extrayendo de Http: " + fechaAsistenciaAuxiliar);
     	
     	if (fechaAsistenciaAuxiliar != null){
     		try {
-				fechaRegistroAsistencia.setTime(df.parse(fechaAsistenciaAuxiliar));
-			} catch (ParseException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+    			fechaRegistroAsistencia = Conversiones.parserHoraFromStringToGregorianCalendar(fechaAsistenciaAuxiliar);
+    		} catch (ParseException e1) {
+    			// TODO Auto-generated catch block
+    			e1.printStackTrace();
+    		}
     	}
+    	
+    	User usuario = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	
     	Usuario objUsuario = new Usuario();
     	objUsuario.setLogin(usuario.getUsername());
@@ -55,6 +61,7 @@ public class InicioController {
     	objAsistencia.setFechaHoraAsistencia(fechaRegistroAsistencia);
     	objAsistencia.setUsuario(objUsuario);
     	objAsistencia.registrarAsistencia();
+    	logger.error("Extrayendo de atributo a volcar: " + df.format(fechaRegistroAsistencia.getTime()));
     	
     	uiModel.addAttribute("horaRegistroAsistencia", df.format(fechaRegistroAsistencia.getTime()));
     	

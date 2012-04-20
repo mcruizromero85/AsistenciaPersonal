@@ -11,13 +11,13 @@
       <spring:message code="welcome_text" />
       Registro de Asistencia
       <form id="fc_com_asistp_asistencia_registro" action="index" method="post" >
-      	<input type="hidden" id="fechaAsistenciaAuxiliarPruebas" />
+      	<input type="hidden" id="fechaAsistenciaAuxiliarPruebas" name="fechaAsistenciaAuxiliarPruebas" value=""/>
         <input type="submit" value="Registrar Asistencia" name="btnRegistrarAsistencia" />
 	    </form>
     <form:dependency dependencies="${dependencies}" id="d_com_asistp_domain_Usuario" render="${not empty dependencies}" z="UM1XA0w4kD0XQlvFMRcoLtKfM6g="/>
     Asistencia Registrada
-    Hora: 8:45
+    Hora: ${horaRegistroAsistencia}
     </p>
-    ${horaRegistroAsistencia}
+    
   </util:panel>
 </div>
