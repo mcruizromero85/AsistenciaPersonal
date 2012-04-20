@@ -53,4 +53,13 @@ public class Steps
 		home.type("j_password", password);
 		home.clickButton("Ingresar");
 	}
+	
+	@When("I set Hour \"$horaAsistenciaAuxiliar\" and click button \"$boton\"")
+	public void iSetHourAndClickButton(String horaAsistenciaAuxiliar,String boton){
+		home.type("fechaAsistenciaAuxiliarPruebas", horaAsistenciaAuxiliar);
+		home.clickButton(boton);
+	}
+	
+	
+	
 }

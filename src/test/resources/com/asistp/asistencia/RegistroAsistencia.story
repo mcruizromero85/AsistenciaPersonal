@@ -28,7 +28,7 @@ Scenario: User juan.sabastizagal register him assistance at 8:45 a.m, He bring t
 Given I open the web application
 Then I login with "juan.sabastizagal" and password "123456"
 Then I should see "Registro de Asistencia"
-When I click button "Registrar Asistencia"
+When I set Hour "8:45" and click button "Registrar Asistencia" 
 Then I should see "Asistencia Registrada"
 Then I should see "Hora: 8:45"
 
@@ -37,6 +37,6 @@ Scenario: User edward.rojas register him assistance at 9:25 a.m, He bring to wor
 Given I open the web application
 Then I login with "edward.rojas" and password "123456"
 Then I should see "Registro de Asistencia"
-When I click button "Registrar Asistencia"
+When I set Hour "9:25" and click button "Registrar Asistencia"
 Then I should see "Asistencia Registrada"
 Then I should see "Hora: 9:25"
