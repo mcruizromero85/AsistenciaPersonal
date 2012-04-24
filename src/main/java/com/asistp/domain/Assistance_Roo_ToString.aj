@@ -3,13 +3,13 @@
 
 package com.asistp.domain;
 
-import com.asistp.domain.Usuario;
+import com.asistp.domain.Assistance;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-privileged aspect Usuario_Roo_ToString {
+privileged aspect Assistance_Roo_ToString {
     
-    public String Usuario.toString() {
+    public String Assistance.toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
     

@@ -3,7 +3,7 @@
 
 package com.asistp.domain;
 
-import com.asistp.domain.Usuario;
+import com.asistp.domain.Worker;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,32 +11,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
-privileged aspect Usuario_Roo_Jpa_Entity {
+privileged aspect Worker_Roo_Jpa_Entity {
     
-    declare @type: Usuario: @Entity;
+    declare @type: Worker: @Entity;
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long Usuario.id;
+    private Long Worker.id;
     
     @Version
     @Column(name = "version")
-    private Integer Usuario.version;
+    private Integer Worker.version;
     
-    public Long Usuario.getId() {
+    public Long Worker.getId() {
         return this.id;
     }
     
-    public void Usuario.setId(Long id) {
+    public void Worker.setId(Long id) {
         this.id = id;
     }
     
-    public Integer Usuario.getVersion() {
+    public Integer Worker.getVersion() {
         return this.version;
     }
     
-    public void Usuario.setVersion(Integer version) {
+    public void Worker.setVersion(Integer version) {
         this.version = version;
     }
     

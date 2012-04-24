@@ -3,73 +3,73 @@
 
 package com.asistp.domain;
 
-import com.asistp.domain.Usuario;
+import com.asistp.domain.Assistance;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
-privileged aspect Usuario_Roo_Jpa_ActiveRecord {
+privileged aspect Assistance_Roo_Jpa_ActiveRecord {
     
     @PersistenceContext
-    transient EntityManager Usuario.entityManager;
+    transient EntityManager Assistance.entityManager;
     
-    public static final EntityManager Usuario.entityManager() {
-        EntityManager em = new Usuario().entityManager;
+    public static final EntityManager Assistance.entityManager() {
+        EntityManager em = new Assistance().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long Usuario.countUsuarios() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM Usuario o", Long.class).getSingleResult();
+    public static long Assistance.countAssistances() {
+        return entityManager().createQuery("SELECT COUNT(o) FROM Assistance o", Long.class).getSingleResult();
     }
     
-    public static List<Usuario> Usuario.findAllUsuarios() {
-        return entityManager().createQuery("SELECT o FROM Usuario o", Usuario.class).getResultList();
+    public static List<Assistance> Assistance.findAllAssistances() {
+        return entityManager().createQuery("SELECT o FROM Assistance o", Assistance.class).getResultList();
     }
     
-    public static Usuario Usuario.findUsuario(Long id) {
+    public static Assistance Assistance.findAssistance(Long id) {
         if (id == null) return null;
-        return entityManager().find(Usuario.class, id);
+        return entityManager().find(Assistance.class, id);
     }
     
-    public static List<Usuario> Usuario.findUsuarioEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM Usuario o", Usuario.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<Assistance> Assistance.findAssistanceEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM Assistance o", Assistance.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
-    public void Usuario.persist() {
+    public void Assistance.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void Usuario.remove() {
+    public void Assistance.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            Usuario attached = Usuario.findUsuario(this.id);
+            Assistance attached = Assistance.findAssistance(this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void Usuario.flush() {
+    public void Assistance.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public void Usuario.clear() {
+    public void Assistance.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
     
     @Transactional
-    public Usuario Usuario.merge() {
+    public Assistance Assistance.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        Usuario merged = this.entityManager.merge(this);
+        Assistance merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }

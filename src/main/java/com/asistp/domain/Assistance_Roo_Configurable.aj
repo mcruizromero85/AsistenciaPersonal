@@ -3,11 +3,11 @@
 
 package com.asistp.domain;
 
-import com.asistp.domain.Usuario;
+import com.asistp.domain.Assistance;
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect Usuario_Roo_Configurable {
+privileged aspect Assistance_Roo_Configurable {
     
-    declare @type: Usuario: @Configurable;
+    declare @type: Assistance: @Configurable;
     
 }
