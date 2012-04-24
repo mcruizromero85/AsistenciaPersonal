@@ -40,3 +40,63 @@ security setup
 hint
 // [failed] hint
 hint
+// Spring Roo UNKNOWN VERSION log opened at 2012-04-23 21:08:12
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-23 21:15:57
+hint
+class --class ~.domain.Usuario
+exit
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2012-04-23 21:17:08
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-23 21:17:12
+entity jpa --class ~.domain.Assistance 
+class --class ~.domain.Assistance
+hint 
+field date --type java.util.Calendar --fieldName fechaHoraAsistencia
+field boolean --fieldName early 
+// [failed] field boolean --fieldName early --notNull 
+field boolean --fieldName early --notNull 
+// [failed] field reference --type ~.domain.Usuario --fieldName usuario --cardinality MANY_TO_ONE --joinColumnName usuario_id
+entity jpa --class ~.domain.Assistance 
+// [failed] field reference --type ~.domain.Usuario --fieldName usuario --cardinality MANY_TO_ONE --joinColumnName usuario_id
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-23 21:31:28
+entity jpa --class ~.domain.Assistance 
+field boolean --fieldName early --notNull 
+field date --type java.util.Calendar --fieldName fechaHoraAsistencia
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-23 21:57:49
+// [failed] entity jpa --class ~.domain.User 
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-23 21:58:33
+entity jpa --class ~.domain.Trabajador
+field string --fieldName login --sizeMin 8 --notNull --unique 
+field string --fieldName password --sizeMin 8 --notNull 
+// [failed] field reference --fieldName assistances --type ~.domain.Assistance --cardinality ONE_TO_MANY 
+field other --type ~.domain.Assistance --fieldName assistances 
+class --class ~.domain.Assistance
+entity jpa --class ~.domain.Assistance
+field reference --fieldName trabajador --type ~.domain.Trabajador --cardinality MANY_TO_ONE
+field date --type java.util.Calendar --fieldName fechaHoraAsistencia
+field boolean --fieldName early --notNull 
+hint
+field string --fieldName nombre --class ~.domain.Trabajador
+// [failed] field string --fieldName nombre --class ~.domain.Trabajador --notNull 
+field string --fieldName nombre --class ~.domain.Trabajador --notNull 
+// [failed] entity jpa --class ~.domain.Worker 
+// [failed] entity jpa --class ~.domain.Worker 
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-23 22:35:30
+// [failed] entity jpa --class ~.domain.Worker 
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-23 22:36:37
+hint
+// [failed] entity jpa --class ~.domain.Assistance 
+entity jpa --class ~.domain.Assistance 
+field boolean --fieldName early --notNull 
+field date --type java.util.Calendar --fieldName dateAssistance
+entity jpa --class ~.domain.Worker
+field string --fieldName login --sizeMin 8 --notNull --unique 
+field string --fieldName password --sizeMin 8 --notNull 
+field other --type ~.domain.Assistance --fieldName assistances 
+field reference --fieldName worker --type ~.domain.Worker --cardinality MANY_TO_ONE --class ~.domain.Assistance
+hint
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-24 12:29:33
+hint
+entity jpa --class ~.domain.demo --testAutomatically 
+field string --fieldName campo1 
+field string --fieldName campo2
+hint

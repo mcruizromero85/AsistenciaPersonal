@@ -63,6 +63,8 @@ public class Steps
 		home.clickButton(boton);
 	}
 	
-	
-	
+	@Then("I should see user \"$user\" with entry hour at \"$hour\" and status \"$status\"")
+	public void iShouldSeeUserWithEntryHourAndStatus(String user,String hour, String status){
+		home.textIsVisible(user+"|"+hour+"|"+status);		
+	}
 }

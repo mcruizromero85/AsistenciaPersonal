@@ -40,3 +40,17 @@ Then I should see "Registro de Asistencia"
 When I set Hour "09:25" and click button "Registrar Asistencia"
 Then I should see "Asistencia Registrada"
 Then I should see "Hora: 09:25"
+
+Scenario: Users mauro.ruiz login to system and see Juan Sabastizagal's registers  , User Mauro is Administrator
+
+Given I open the web application
+Then I login with "mauro.ruiz" and password "123456"
+Then I should see user "juan.sabastizagal" with entry hour at "08:45" and status "Temprano" 
+
+Scenario: Users mauro.ruiz login to system and see Edward Rojas's registers  , User Mauro is Administrator
+
+Given I open the web application
+Then I login with "edward.rojas" and password "123456"
+Then I should see user "edward.rojas" with entry hour at "09:25" and status "Tarde" 
+
+

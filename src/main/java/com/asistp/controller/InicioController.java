@@ -41,8 +41,7 @@ public class InicioController {
     	SimpleDateFormat df = new SimpleDateFormat("HH:mm");
     	String fechaAsistenciaAuxiliar = httpServletRequest.getParameter("fechaAsistenciaAuxiliarPruebas");
     	
-    	logger.error("Extrayendo de Http: " + fechaAsistenciaAuxiliar);
-    	
+    	    	
     	if (fechaAsistenciaAuxiliar != null){
     		try {
     			fechaRegistroAsistencia = Conversiones.parserHoraFromStringToGregorianCalendar(fechaAsistenciaAuxiliar);
@@ -55,13 +54,12 @@ public class InicioController {
     	User usuario = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	
     	Usuario objUsuario = new Usuario();
-    	objUsuario.setLogin(usuario.getUsername());
+//    	objUsuario.setLogin(usuario.getUsername());
     	
     	Asistencia objAsistencia = new Asistencia();
     	objAsistencia.setFechaHoraAsistencia(fechaRegistroAsistencia);
     	objAsistencia.setUsuario(objUsuario);
     	objAsistencia.registrarAsistencia();
-    	logger.error("Extrayendo de atributo a volcar: " + df.format(fechaRegistroAsistencia.getTime()));
     	
     	uiModel.addAttribute("horaRegistroAsistencia", df.format(fechaRegistroAsistencia.getTime()));
     	
