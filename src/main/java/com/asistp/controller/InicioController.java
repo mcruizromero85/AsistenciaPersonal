@@ -14,9 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.asistp.asistencia.utils.Conversiones;
-import com.asistp.domain.Asistencia;
-import com.asistp.domain.Usuario;
+import com.asistp.assistance.utils.Conversiones;
+import com.asistp.domain.Assistance;
+import com.asistp.domain.Worker;
 
 @RequestMapping("/index")
 @Controller
@@ -53,13 +53,13 @@ public class InicioController {
     	
     	User usuario = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     	
-    	Usuario objUsuario = new Usuario();
+    	Worker objUsuario = new Worker();
 //    	objUsuario.setLogin(usuario.getUsername());
     	
-    	Asistencia objAsistencia = new Asistencia();
-    	objAsistencia.setFechaHoraAsistencia(fechaRegistroAsistencia);
-    	objAsistencia.setUsuario(objUsuario);
-    	objAsistencia.registrarAsistencia();
+    	Assistance objAsistencia = new Assistance();
+    	objAsistencia.setDateAssistance(fechaRegistroAsistencia);
+    	objAsistencia.setWorker(objUsuario);
+    	objAsistencia.register();
     	
     	uiModel.addAttribute("horaRegistroAsistencia", df.format(fechaRegistroAsistencia.getTime()));
     	

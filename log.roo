@@ -100,3 +100,28 @@ entity jpa --class ~.domain.demo --testAutomatically
 field string --fieldName campo1 
 field string --fieldName campo2
 hint
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-24 13:04:56
+hint
+hint all
+controller all --package com.asistp.domain
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-24 13:20:35
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-24 13:21:25
+controller all --package com.asistp.controller
+hint
+jpa setup --database MYSQL --provider HIBERNATE 
+jpa setup --database HYPERSONIC_IN_MEMORY --provider HIBERNATE --databaseName Assistance --userName assistance --password password
+jpa setup --database MYSQL --provider HIBERNATE 
+jpa setup --database HYPERSONIC_IN_MEMORY --provider HIBERNATE 
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2012-04-24 18:24:50
+field set --type ~.domain.Assistance --fieldName asistencias --class ~.domain.Worker --cardinality ONE_TO_MANY --mappedBy worker 
+// [failed] field other --type ~.domain.Worker --fieldName worker --class ~.domain.Assistance 
+// [failed] field reference --fieldName worker --type ~.domain.Worker --cardinality MANY_TO_ONE --joinColumnName id_worker --class ~.domain.Assistance
+field reference --fieldName worker --type ~.domain.Worker --cardinality MANY_TO_ONE --joinColumnName id_worker --class ~.domain.Assistance
+hint
+entity jpa --class ~.domain.schedule 
+field string --fieldName name --notNull --sizeMin 10 --sizeMax 50 --unique 
+field date --fieldName hourLate --type java.util.Calendar 
+field reference --fieldName schedule --type ~.domain.Schedule --cardinality MANY_TO_ONE --joinColumnName id_schedule --class ~.domain.Worker
+field set --type ~.domain.Worker --fieldName workers --class ~.domain.Schedule --cardinality ONE_TO_MANY --mappedBy schedule
+hint
+hint

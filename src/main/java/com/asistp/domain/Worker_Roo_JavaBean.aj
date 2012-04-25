@@ -4,7 +4,9 @@
 package com.asistp.domain;
 
 import com.asistp.domain.Assistance;
+import com.asistp.domain.Schedule;
 import com.asistp.domain.Worker;
+import java.util.Set;
 
 privileged aspect Worker_Roo_JavaBean {
     
@@ -24,12 +26,20 @@ privileged aspect Worker_Roo_JavaBean {
         this.password = password;
     }
     
-    public Assistance Worker.getAssistances() {
-        return this.assistances;
+    public Set<Assistance> Worker.getAsistencias() {
+        return this.asistencias;
     }
     
-    public void Worker.setAssistances(Assistance assistances) {
-        this.assistances = assistances;
+    public void Worker.setAsistencias(Set<Assistance> asistencias) {
+        this.asistencias = asistencias;
+    }
+    
+    public Schedule Worker.getSchedule() {
+        return this.schedule;
+    }
+    
+    public void Worker.setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
     
 }

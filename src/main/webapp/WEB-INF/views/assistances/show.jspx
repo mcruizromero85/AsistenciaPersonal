@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_asistp_domain_Assistance" object="${assistance}" path="/assistances" z="Z/f5VKK9LVS8bHSY+g2+Kv0vPLU=">
+        <field:display calendar="true" dateTimePattern="${assistance_dateassistance_date_format}" field="dateAssistance" id="s_com_asistp_domain_Assistance_dateAssistance" object="${assistance}" z="d/GE/auIqx1H9g6Y2Zj+/PNZCrI="/>
+        <field:display field="worker" id="s_com_asistp_domain_Assistance_worker" object="${assistance}" z="E66zUIUpZ5Q1qIkLjhdWKBYLZDw="/>
+    </page:show>
+</div>

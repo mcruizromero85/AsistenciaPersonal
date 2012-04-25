@@ -9,14 +9,6 @@ import java.util.Calendar;
 
 privileged aspect Assistance_Roo_JavaBean {
     
-    public Boolean Assistance.getEarly() {
-        return this.early;
-    }
-    
-    public void Assistance.setEarly(Boolean early) {
-        this.early = early;
-    }
-    
     public Calendar Assistance.getDateAssistance() {
         return this.dateAssistance;
     }

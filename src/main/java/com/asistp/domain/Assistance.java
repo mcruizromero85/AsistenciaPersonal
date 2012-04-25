@@ -1,6 +1,9 @@
 package com.asistp.domain;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -14,19 +17,38 @@ import org.springframework.roo.addon.tostring.RooToString;
 @RooToString
 @RooJpaActiveRecord
 public class Assistance {
-
-    @NotNull
-    private Boolean early;
-
+	
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Calendar dateAssistance;
 
     @ManyToOne
+    @JoinColumn(name = "id_worker")
     private Worker worker;
 
-	public void register() {
-		early = true;
-		this.persist();
-	}
+    public void register() {
+         this.persist();
+    }
+    
+    public boolean getEarly(){
+    	
+    	Schedule schedule = worker.getSchedule();
+    	GregorianCalendar hourLateReferenceGc= (GregorianCalendar) schedule.getHourLate();
+    	
+    	int hourLateReference = hourLateReferenceGc.get(Calendar.HOUR_OF_DAY);
+    	int minuteLateReference = hourLateReferenceGc.get(Calendar.MINUTE);
+    	
+    	int hourAssistance  = dateAssistance.get(Calendar.HOUR_OF_DAY);
+    	int minuteAssistance = dateAssistance.get(Calendar.MINUTE);
+    	
+    	if (hourAssistance > hourLateReference ){
+    		return false;
+    	}
+    	
+    	if (hourAssistance == hourLateReference && minuteAssistance > minuteLateReference ){
+    		return false;    		
+    	}
+    	
+    	return true;
+    }
 }

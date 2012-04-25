@@ -3,9 +3,15 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
-        <menu:category id="c_usuario" z="g6oG0656PcsmmvUYeBtpgiQROck=">
-            <menu:item id="i_usuario_new" messageCode="global_menu_new" url="/usuarios?form" z="RG1gCsiZQjg1HLDzXbHKht6yDkw="/>
-            <menu:item id="i_usuario_list" messageCode="global_menu_list" url="/usuarios?page=1&amp;size=${empty param.size ? 10 : param.size}" z="P7ZIPrcTTBR41JYD0QldbYgsZrM="/>
+
+        <menu:category id="c_assistance" z="p54ivJdxr7kFijUdMJQxjollM8U=">
+            <menu:item id="i_assistance_new" messageCode="global_menu_new" url="/assistances?form" z="D2TXfJ5SJi7WRcUps01kXwCrLfg="/>
+            <menu:item id="i_assistance_list" messageCode="global_menu_list" url="/assistances?page=1&amp;size=${empty param.size ? 10 : param.size}" z="EdkK1brsRN6pg9zVm3GV50PCSu8="/>
         </menu:category>
+        <menu:category id="c_worker" z="e1l4393hv4R+Ivyl0dIV7PzvfSM=">
+            <menu:item id="i_worker_new" messageCode="global_menu_new" url="/workers?form" z="dUgHbkgQ01DT/QqJGwF27GqA4HY="/>
+            <menu:item id="i_worker_list" messageCode="global_menu_list" url="/workers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="nFefji4lZa+8AN5HNAfY15E4Z4A="/>
+        </menu:category>
+
     </menu:menu>
 </div>

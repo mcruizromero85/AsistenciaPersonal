@@ -13,8 +13,10 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import com.asistp.asistencia.utils.Conversiones;
+
+import com.asistp.assistance.utils.Conversiones;
 import com.asistp.domain.Assistance;
+import com.asistp.domain.Schedule;
 import com.asistp.domain.Worker;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -25,7 +27,10 @@ public class RegistroAsistenciaTest {
 	private Assistance objAssistance;
 	private GregorianCalendar dateAssistance;
 	private List<Assistance> assistances;
-	
+	private Schedule schedule;
+	private Worker workerEdward;
+	private Worker workerMartin;
+	private Worker workerJuan;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -33,6 +38,14 @@ public class RegistroAsistenciaTest {
 		objAssistance = new Assistance();
 		dateAssistance = new GregorianCalendar();
 		
+		schedule = new Schedule();
+		schedule.setHourLate( getGregorianCalendarWithHourForTest("09:00"));
+		schedule.setName("Horario Regular");
+		schedule.persist();
+		
+		workerEdward = getObjectWorkerToTestByUserName("edward.rojas");
+		workerMartin = getObjectWorkerToTestByUserName("martin.sabastizagal");
+		workerJuan = getObjectWorkerToTestByUserName("juan.sabastizagal");
 	}
 	
 	//Parsear correctamente las horas a gregorian Calendars, hora ejemplo 8:45
@@ -72,7 +85,7 @@ public class RegistroAsistenciaTest {
 	@Test
 	public void registerAssistanceEarly() {
 		
-		objAssistance = getObjectTemplateAssistanceByUserAndHour("juan.sabastizagal","08:45");
+		objAssistance = getObjectTemplateAssistanceByUserAndHour(workerJuan,"08:45");
 		objAssistance.register();
 				
 		assertTrue(objAssistance.getEarly());
@@ -82,7 +95,7 @@ public class RegistroAsistenciaTest {
 	@Test
 	public void registerAssistanceLatest() {
 		
-		objAssistance = getObjectTemplateAssistanceByUserAndHour("edward.rojas","09:25");
+		objAssistance = getObjectTemplateAssistanceByUserAndHour(workerEdward,"09:25");
 		objAssistance.register();
 		
 		assertTrue(!objAssistance.getEarly() );		
@@ -94,8 +107,8 @@ public class RegistroAsistenciaTest {
 		
 		List<Assistance> listAssistance;
 		
-		Assistance asistenciaEarly =   getObjectTemplateAssistanceByUserAndHour("juan.sabastizagal","08:45");
-		Assistance asistenciaLatest=   getObjectTemplateAssistanceByUserAndHour("edward.rojas","09:25");
+		Assistance asistenciaEarly =   getObjectTemplateAssistanceByUserAndHour(workerJuan,"08:45");
+		Assistance asistenciaLatest=   getObjectTemplateAssistanceByUserAndHour(workerEdward,"09:25");
 		
 		asistenciaEarly.register();
 		asistenciaLatest.register();
@@ -111,9 +124,9 @@ public class RegistroAsistenciaTest {
 			
 		List<Assistance> listAssistance;
 			
-		Assistance asistenciaEarly =   getObjectTemplateAssistanceByUserAndHour("juan.sabastizagal","08:45");
-		Assistance asistenciaLatest=   getObjectTemplateAssistanceByUserAndHour("edward.rojas","09:25");
-		Assistance asistenciaLatestNumberTwo=   getObjectTemplateAssistanceByUserAndHour("martin.sabastizagal","09:55");
+		Assistance asistenciaEarly =   getObjectTemplateAssistanceByUserAndHour(workerJuan,"08:45");
+		Assistance asistenciaLatest=   getObjectTemplateAssistanceByUserAndHour(workerEdward,"09:25");
+		Assistance asistenciaLatestNumberTwo=   getObjectTemplateAssistanceByUserAndHour(workerMartin,"09:55");
 			
 		asistenciaEarly.register();
 		asistenciaLatest.register();
@@ -124,25 +137,39 @@ public class RegistroAsistenciaTest {
 		assertTrue(listAssistance.size() == 3 );
 	}
 	
-	public Assistance getObjectTemplateAssistanceByUserAndHour(String user,String hora){
+	public Assistance getObjectTemplateAssistanceByUserAndHour(Worker workerParam,String hora){
 		
-		int hourOfDay = Integer.parseInt(  hora.split(":")[0] );
-		int minute = Integer.parseInt(  hora.split(":")[1] );
 		
-		GregorianCalendar fechaAsistencia = new GregorianCalendar();
-		fechaAsistencia.set(fechaAsistencia.get(Calendar.YEAR) ,
-							fechaAsistencia.get(Calendar.MONTH), 
-							fechaAsistencia.get(Calendar.DAY_OF_MONTH),
-							hourOfDay, minute);
+		GregorianCalendar fechaAsistencia = getGregorianCalendarWithHourForTest(hora);
 		
 		Assistance objAssistance = new Assistance();
-		Worker objUsuario = new Worker();
-		objUsuario.setLogin("edward.rojas");
-		objAssistance.setWorker(objUsuario);
+			
+		objAssistance.setWorker(workerParam);
 		objAssistance.setDateAssistance(fechaAsistencia);
 		
 		return objAssistance;
 	}
-	
 
+	private GregorianCalendar getGregorianCalendarWithHourForTest(String stringHourWithMinute) {
+		
+		int hourOfDay = Integer.parseInt(  stringHourWithMinute.split(":")[0] );
+		int minute = Integer.parseInt(  stringHourWithMinute.split(":")[1] );
+		
+		GregorianCalendar gcHourWithMinute = new GregorianCalendar();
+		gcHourWithMinute.set(gcHourWithMinute.get(Calendar.YEAR) ,
+				gcHourWithMinute.get(Calendar.MONTH), 
+				gcHourWithMinute.get(Calendar.DAY_OF_MONTH),
+				hourOfDay, minute);
+		
+		return gcHourWithMinute;
+	}
+	
+	private Worker getObjectWorkerToTestByUserName(String username) {
+		Worker worker = new Worker();
+		worker.setLogin(username);
+		worker.setPassword("12345678");
+		worker.setSchedule(schedule);
+		worker.persist();
+		return worker;
+	}
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_asistp_domain_Assistance" items="${assistances}" z="sT6aJNr0IYkKZONJv8xA61U9fWI=">
+        <table:table data="${assistances}" id="l_com_asistp_domain_Assistance" path="/assistances" z="Zb9OxMmXOCv0oJCAdbpyFU+b4vA=">
+            <table:column calendar="true" dateTimePattern="${assistance_dateassistance_date_format}" id="c_com_asistp_domain_Assistance_dateAssistance" property="dateAssistance" z="xbBqS4yo0NL7+Z+YnDQTC0mrBps="/>
+            <table:column id="c_com_asistp_domain_Assistance_worker" property="worker" z="QaSSHToUTtBhG4iGyaS9EgLiEh4="/>
+        </table:table>
+    </page:list>
+</div>
