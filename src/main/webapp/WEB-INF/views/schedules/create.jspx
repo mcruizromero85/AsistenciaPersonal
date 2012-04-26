@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:create id="fc_com_asistp_domain_Schedule" modelAttribute="schedule" path="/schedules" render="${empty dependencies}" z="y7lIYBIjZBYCRo8LZW7M26jggxk=">
+        <field:textarea field="name" id="c_com_asistp_domain_Schedule_name" required="true" z="xYNtheZKFFZFTmXpjHqJ61bkOwA="/>
+        <field:simple field="workers" id="c_com_asistp_domain_Schedule_workers" messageCode="entity_reference_not_managed" messageCodeAttribute="Worker" z="bh2zkbqmKIzbr3UoS1cI+fhlbwo="/>
+        <field:input field="hourLimit" id="c_com_asistp_domain_Schedule_hourLimit" max="12" min="7" required="true" z="K2gQWQGt2XsAPlysMKaIHjyu9eg="/>
+        <field:input field="minuteHourLimit" id="c_com_asistp_domain_Schedule_minuteHourLimit" max="59" min="0" required="true" z="/oqpBF9BGN3j9TDq4Ad+W7rdwtk="/>
+    </form:create>
+    <form:dependency dependencies="${dependencies}" id="d_com_asistp_domain_Schedule" render="${not empty dependencies}" z="TJLQF8a84tiq6H7aTrcC/PL8puE="/>
+</div>
