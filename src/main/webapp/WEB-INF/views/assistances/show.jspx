@@ -5,5 +5,7 @@
     <page:show id="ps_com_asistp_domain_Assistance" object="${assistance}" path="/assistances" z="Z/f5VKK9LVS8bHSY+g2+Kv0vPLU=">
         <field:display calendar="true" dateTimePattern="${assistance_dateassistance_date_format}" field="dateAssistance" id="s_com_asistp_domain_Assistance_dateAssistance" object="${assistance}" z="d/GE/auIqx1H9g6Y2Zj+/PNZCrI="/>
         <field:display field="worker" id="s_com_asistp_domain_Assistance_worker" object="${assistance}" z="E66zUIUpZ5Q1qIkLjhdWKBYLZDw="/>
+        <field:display field="status" id="s_com_asistp_domain_Assistance_status" object="${assistance}" z="ZwDzOBpVRHv1fhmzdUptsZ7a4+A="/>
+        <field:display field="hourLimitReference" id="s_com_asistp_domain_Assistance_hourLimitReference" object="${assistance}" z="sFnWAtMXMUSLmNmqdB7wzjoFCbw="/>
     </page:show>
 </div>

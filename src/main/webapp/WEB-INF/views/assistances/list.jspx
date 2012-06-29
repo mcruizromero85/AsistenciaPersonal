@@ -6,6 +6,8 @@
         <table:table data="${assistances}" id="l_com_asistp_domain_Assistance" path="/assistances" z="Zb9OxMmXOCv0oJCAdbpyFU+b4vA=">
             <table:column calendar="true" dateTimePattern="${assistance_dateassistance_date_format}" id="c_com_asistp_domain_Assistance_dateAssistance" property="dateAssistance" z="xbBqS4yo0NL7+Z+YnDQTC0mrBps="/>
             <table:column id="c_com_asistp_domain_Assistance_worker" property="worker" z="QaSSHToUTtBhG4iGyaS9EgLiEh4="/>
+            <table:column id="c_com_asistp_domain_Assistance_status" property="status" z="/mNKnNIhYTDrRooVriTn+en0K7A="/>
+            <table:column id="c_com_asistp_domain_Assistance_hourLimitReference" property="hourLimitReference" z="TFOlFYSx6xxBFyO4JeyE479l18w="/>
         </table:table>
     </page:list>
 </div>

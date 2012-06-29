@@ -5,5 +5,7 @@
     <form:update id="fu_com_asistp_domain_Assistance" modelAttribute="assistance" path="/assistances" versionField="Version" z="DiqyYPqR62TkTJd3Wa1mLh1zBjE=">
         <field:datetime dateTimePattern="${assistance_dateassistance_date_format}" field="dateAssistance" id="c_com_asistp_domain_Assistance_dateAssistance" z="JFwz2KiObs42a52Bk1rwVVLuspc="/>
         <field:select field="worker" id="c_com_asistp_domain_Assistance_worker" itemValue="id" items="${workers}" path="/workers" z="edD/URQCbrBicfO1Uw1JUHn7l0A="/>
+        <field:input field="status" id="c_com_asistp_domain_Assistance_status" z="IBKsyokITg+GNCwi1SjAnoD2Xf0="/>
+        <field:input field="hourLimitReference" id="c_com_asistp_domain_Assistance_hourLimitReference" z="esz7ViArOQQPCzniw8CSjjMRk4A="/>
     </form:update>
 </div>

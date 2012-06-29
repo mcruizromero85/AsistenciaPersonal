@@ -4,9 +4,14 @@
     <definition extends="default" name="assistances/list">
         <put-attribute name="body" value="/WEB-INF/views/assistances/list.jspx"/>
     </definition>
-<definition extends="default" name="assistances/show">
+	<definition extends="default" name="assistances/show">
         <put-attribute name="body" value="/WEB-INF/views/assistances/show.jspx"/>
     </definition>
+    
+    <definition extends="default" name="assistances/showReadOnly">
+        <put-attribute name="body" value="/WEB-INF/views/assistances/showReadOnly.jspx"/>
+    </definition>
+    
 <definition extends="default" name="assistances/create">
         <put-attribute name="body" value="/WEB-INF/views/assistances/create.jspx"/>
     </definition>

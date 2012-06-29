@@ -5,7 +5,6 @@ package com.asistp.domain;
 
 import com.asistp.domain.Schedule;
 import com.asistp.domain.Worker;
-import java.util.Calendar;
 import java.util.Set;
 
 privileged aspect Schedule_Roo_JavaBean {
@@ -18,20 +17,28 @@ privileged aspect Schedule_Roo_JavaBean {
         this.name = name;
     }
     
-    public Calendar Schedule.getHourLate() {
-        return this.hourLate;
-    }
-    
-    public void Schedule.setHourLate(Calendar hourLate) {
-        this.hourLate = hourLate;
-    }
-    
     public Set<Worker> Schedule.getWorkers() {
         return this.workers;
     }
     
     public void Schedule.setWorkers(Set<Worker> workers) {
         this.workers = workers;
+    }
+    
+    public int Schedule.getHourLimit() {
+        return this.hourLimit;
+    }
+    
+    public void Schedule.setHourLimit(int hourLimit) {
+        this.hourLimit = hourLimit;
+    }
+    
+    public int Schedule.getMinuteHourLimit() {
+        return this.minuteHourLimit;
+    }
+    
+    public void Schedule.setMinuteHourLimit(int minuteHourLimit) {
+        this.minuteHourLimit = minuteHourLimit;
     }
     
 }

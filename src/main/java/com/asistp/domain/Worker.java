@@ -21,11 +21,7 @@ public class Worker {
     @NotNull
     @Column(unique = true)
     @Size(min = 8)
-    private String login;
-
-    @NotNull
-    @Size(min = 8)
-    private String password;
+    private String username;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "worker")
     private Set<Assistance> asistencias = new HashSet<Assistance>();
@@ -33,4 +29,9 @@ public class Worker {
     @ManyToOne
     @JoinColumn(name = "id_schedule")
     private Schedule schedule;
+
+    
+	public static Worker findByField(String field, String username) {
+		return (entityManager().createQuery("SELECT o FROM Worker o where o."+field+"='"+username+"'", Worker.class).getResultList()).get(0);
+	}
 }

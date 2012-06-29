@@ -9,8 +9,6 @@ import com.asistp.domain.Worker;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import org.joda.time.format.DateTimeFormat;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -90,7 +88,7 @@ privileged aspect AssistanceController_Roo_Controller {
     }
     
     void AssistanceController.addDateTimeFormatPatterns(Model uiModel) {
-        uiModel.addAttribute("assistance_dateassistance_date_format", DateTimeFormat.patternForStyle("M-", LocaleContextHolder.getLocale()));
+        uiModel.addAttribute("assistance_dateassistance_date_format", "yyyy-MM-dd HH:mm:ss");
     }
     
     void AssistanceController.populateEditForm(Model uiModel, Assistance assistance) {

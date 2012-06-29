@@ -25,4 +25,20 @@ privileged aspect Assistance_Roo_JavaBean {
         this.worker = worker;
     }
     
+    public String Assistance.getStatus() {
+        return this.status;
+    }
+    
+    public void Assistance.setStatus(String status) {
+        this.status = status;
+    }
+    
+    public String Assistance.getHourLimitReference() {
+        return this.hourLimitReference;
+    }
+    
+    public void Assistance.setHourLimitReference(String hourLimitReference) {
+        this.hourLimitReference = hourLimitReference;
+    }
+    
 }

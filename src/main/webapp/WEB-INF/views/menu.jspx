@@ -3,7 +3,6 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
-
         <menu:category id="c_assistance" z="p54ivJdxr7kFijUdMJQxjollM8U=">
             <menu:item id="i_assistance_new" messageCode="global_menu_new" url="/assistances?form" z="D2TXfJ5SJi7WRcUps01kXwCrLfg="/>
             <menu:item id="i_assistance_list" messageCode="global_menu_list" url="/assistances?page=1&amp;size=${empty param.size ? 10 : param.size}" z="EdkK1brsRN6pg9zVm3GV50PCSu8="/>
@@ -12,6 +11,9 @@
             <menu:item id="i_worker_new" messageCode="global_menu_new" url="/workers?form" z="dUgHbkgQ01DT/QqJGwF27GqA4HY="/>
             <menu:item id="i_worker_list" messageCode="global_menu_list" url="/workers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="nFefji4lZa+8AN5HNAfY15E4Z4A="/>
         </menu:category>
-
+        <menu:category id="c_schedule" z="OVZfNuLZqPLu5Cbgn0FVuQj+lw0=">
+            <menu:item id="i_schedule_new" messageCode="global_menu_new" url="/schedules?form" z="fEbB1TLoAMHgihJiyLpD/K1mMI0="/>
+            <menu:item id="i_schedule_list" messageCode="global_menu_list" url="/schedules?page=1&amp;size=${empty param.size ? 10 : param.size}" z="a/r1d6sKwcNadI1IqZ37gsZ4WRs="/>
+        </menu:category>
     </menu:menu>
 </div>

@@ -10,20 +10,12 @@ import java.util.Set;
 
 privileged aspect Worker_Roo_JavaBean {
     
-    public String Worker.getLogin() {
-        return this.login;
+    public String Worker.getUsername() {
+        return this.username;
     }
     
-    public void Worker.setLogin(String login) {
-        this.login = login;
-    }
-    
-    public String Worker.getPassword() {
-        return this.password;
-    }
-    
-    public void Worker.setPassword(String password) {
-        this.password = password;
+    public void Worker.setUsername(String username) {
+        this.username = username;
     }
     
     public Set<Assistance> Worker.getAsistencias() {

@@ -3,10 +3,9 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_asistp_domain_Worker" modelAttribute="worker" path="/workers" render="${empty dependencies}" z="aHf/+09Wb03Y+akvcQwmI6r2r24=">
-        <field:input field="login" id="c_com_asistp_domain_Worker_login" min="8" required="true" z="99ubbumdyhy/IIsrrlerLDSJkL4="/>
-        <field:input field="password" id="c_com_asistp_domain_Worker_password" min="8" required="true" z="8rnMAsNh/YeL+3T0+gL0YLyDQkc="/>
         <field:simple field="asistencias" id="c_com_asistp_domain_Worker_asistencias" messageCode="entity_reference_not_managed" messageCodeAttribute="Assistance" z="DyLPWbw942tWoeMJyW1q4RwQIcA="/>
         <field:select field="schedule" id="c_com_asistp_domain_Worker_schedule" itemValue="id" items="${schedules}" path="/schedules" z="raSxbUG0nrmK2lOJ96ZZme2PHDY="/>
+        <field:input field="username" id="c_com_asistp_domain_Worker_username" min="8" required="true" z="t4bprfwGZdyMhvlk4OzvsruXVtk="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_asistp_domain_Worker" render="${not empty dependencies}" z="QJRa1iLCT8UmJaojQ/w6jvBkCiI="/>
 </div>

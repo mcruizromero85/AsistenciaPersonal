@@ -5,6 +5,7 @@ package com.asistp.controller;
 
 import com.asistp.controller.ApplicationConversionServiceFactoryBean;
 import com.asistp.domain.Assistance;
+import com.asistp.domain.Schedule;
 import com.asistp.domain.Worker;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
@@ -17,7 +18,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Assistance, String> ApplicationConversionServiceFactoryBean.getAssistanceToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.asistp.domain.Assistance, java.lang.String>() {
             public String convert(Assistance assistance) {
-                return new StringBuilder().append(assistance.getDateAssistance()).toString();
+                return new StringBuilder().append(assistance.getDateAssistance()).append(" ").append(assistance.getStatus()).append(" ").append(assistance.getHourLimitReference()).toString();
             }
         };
     }
@@ -38,10 +39,34 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Schedule, String> ApplicationConversionServiceFactoryBean.getScheduleToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.asistp.domain.Schedule, java.lang.String>() {
+            public String convert(Schedule schedule) {
+                return new StringBuilder().append(schedule.getName()).append(" ").append(schedule.getHourLimit()).append(" ").append(schedule.getMinuteHourLimit()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Schedule> ApplicationConversionServiceFactoryBean.getIdToScheduleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.asistp.domain.Schedule>() {
+            public com.asistp.domain.Schedule convert(java.lang.Long id) {
+                return Schedule.findSchedule(id);
+            }
+        };
+    }
+    
+    public Converter<String, Schedule> ApplicationConversionServiceFactoryBean.getStringToScheduleConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.asistp.domain.Schedule>() {
+            public com.asistp.domain.Schedule convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Schedule.class);
+            }
+        };
+    }
+    
     public Converter<Worker, String> ApplicationConversionServiceFactoryBean.getWorkerToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.asistp.domain.Worker, java.lang.String>() {
             public String convert(Worker worker) {
-                return new StringBuilder().append(worker.getLogin()).append(" ").append(worker.getPassword()).toString();
+                return new StringBuilder().append(worker.getUsername()).toString();
             }
         };
     }
@@ -66,6 +91,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getAssistanceToStringConverter());
         registry.addConverter(getIdToAssistanceConverter());
         registry.addConverter(getStringToAssistanceConverter());
+        registry.addConverter(getScheduleToStringConverter());
+        registry.addConverter(getIdToScheduleConverter());
+        registry.addConverter(getStringToScheduleConverter());
         registry.addConverter(getWorkerToStringConverter());
         registry.addConverter(getIdToWorkerConverter());
         registry.addConverter(getStringToWorkerConverter());
