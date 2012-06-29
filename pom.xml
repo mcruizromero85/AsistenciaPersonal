@@ -13,6 +13,10 @@
         <roo.version>1.2.1.RELEASE</roo.version>
         <slf4j.version>1.6.4</slf4j.version>
         <spring.version>3.1.0.RELEASE</spring.version>
+	<sql.driver>com.mysql.jdbc.Driver</sql.driver>
+	<sql.url>jdbc:mysql://localhost:3306/assistance</sql.url>
+	<sql.username>root</sql.username>
+	<sql.password>password</sql.password>		  
     <spring-security.version>3.1.0.RELEASE</spring-security.version>
     </properties>
     <repositories>
@@ -330,9 +334,9 @@
             <version>${spring-security.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>1.8.0.10</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.18</version>
         </dependency>
     </dependencies>
     <build>
@@ -573,7 +577,69 @@
                             </dependency>
                         </dependencies>
            </plugin>
-            
+
+
+		<!-- Plugin para ejecutar Scripts -->
+		<plugin>
+		       <groupId>org.codehaus.mojo</groupId>
+		       <artifactId>exec-maven-plugin</artifactId>
+		       <version>1.2.1</version>
+        	       <configuration>
+		       <executable>sh</executable>
+			  <arguments>
+			    <argument>scripts/initBd.sh</argument>
+			    <argument>${sql.username}</argument>
+			    <argument>${sql.password}</argument>
+          		  </arguments>
+			</configuration>
+
+			<executions>
+                            <execution>
+                                <id>init_to_bdd</id>
+                                <phase>generate-test-sources</phase>
+                                <goals>
+                                    <goal>exec</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+		</plugin>
+
+		<!--AutoBuild de BD -->
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+		        <artifactId>sql-maven-plugin</artifactId>
+			<version>1.5</version>
+			<dependencies>
+		         <!-- specify the dependent JDBC driver here -->
+		          <dependency>
+			    <groupId>mysql</groupId>
+               		    <artifactId>mysql-connector-java</artifactId>
+	                    <version>5.1.13</version>
+		          </dependency>
+		        </dependencies>
+
+	    		<configuration>
+			  <driver>${sql.driver}</driver>
+			  <url>${sql.url}</url>
+			  <username>${sql.username}</username>
+			  <password>${sql.password}</password>
+			  <srcFiles>
+			     <srcFile>sql/Ddl.sql</srcFile>
+			     <srcFile>sql/Inserts.sql</srcFile>	
+		      	  </srcFiles>
+			</configuration>
+
+			<executions>
+                            <execution>
+                                <id>init_sql_to_bdd</id>
+                                <phase>generate-test-sources</phase>
+                                <goals>
+                                    <goal>execute</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+		</plugin>
+
         </plugins>
     </build>
 </project>
